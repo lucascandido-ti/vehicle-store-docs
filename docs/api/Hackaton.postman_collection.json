@@ -1,0 +1,523 @@
+{
+	"info": {
+		"_postman_id": "43a1260b-38c2-400a-9240-eefc6035e11c",
+		"name": "Hackaton",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7167019"
+	},
+	"item": [
+		{
+			"name": "Lambdas",
+			"item": [
+				{
+					"name": "Vehicle Catalog",
+					"item": [
+						{
+							"name": "Create Vehicles",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJraWQiOiJ4Z21BWExrYXRQY0t2MGRBMW5FWGFUTWtZVnFnNGRrOFJHcCtxVWxwZGswPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI0NDU4ODQ3OC02MGQxLTcwZGEtMmQ4Ny1hNjg3ODZlMTRmMWMiLCJjb2duaXRvOmdyb3VwcyI6WyJzZWxsZXIiXSwiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLnVzLWVhc3QtMS5hbWF6b25hd3MuY29tXC91cy1lYXN0LTFfRzVNOURpbTZiIiwiY2xpZW50X2lkIjoiNmdkNDZoNnZvMDRiYTNtY3NiaWM4b2xndHYiLCJvcmlnaW5fanRpIjoiMzNlOTM2NzctMTMwNy00MmY0LThlNzUtZTA5ZDA4ZDkzN2NmIiwiZXZlbnRfaWQiOiI3MGM2NWI3MC03ZDE0LTQ0YjEtOTM1Yy1lZjg0NzRmOWQ3MTEiLCJ0b2tlbl91c2UiOiJhY2Nlc3MiLCJzY29wZSI6ImF3cy5jb2duaXRvLnNpZ25pbi51c2VyLmFkbWluIiwiYXV0aF90aW1lIjoxNzM5NDkwNTIxLCJleHAiOjE3Mzk0OTQxMjEsImlhdCI6MTczOTQ5MDUyMSwianRpIjoiMmZkNWVmMTEtMzVhMC00ZmRhLTg5OGMtMmQ0YWM2NGIwOTgxIiwidXNlcm5hbWUiOiJ2ZW5kZWRvckBnbWFpbC5jb20ifQ.Cqqd8NyHlbwFi0vDQIUTJmTFaCfkamTh0HBP_VmTRB0GZhev460QFmr-O9HAytPHMPeXV2lCPREKDbpDPs4Rdf9FWcXbfCY0ZnPJ7ZrswJa-7mWVkBbEypNbd6LBcHTNdmNMZAqc52RLUClDZtqqV-W5dsHwXooOh9KDswrldE1fs69jdhQAHnRc8YFQHqM9nrs2GBa7ShkpoktYXWkaTYYClbgiNTppTStGnDHwXk7Ri9Ht4AE8fW0pgKik1fP-2LOp-ugrxuyM-mxcpCi2a0BBpa6fCPjcboHXIb_cNy1tJfPaoBHL03CmCZ_K5u1olA8j52FmPBJmr8Cl6CSQdQ",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"brand\": \"Fiat\",\r\n    \"model\": \"500\",\r\n    \"year\": 2022,\r\n    \"price\": 70000,\r\n    \"mileage\": 50000\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://k61z2v2f25.execute-api.us-east-1.amazonaws.com/dev/vehicle",
+									"protocol": "https",
+									"host": [
+										"k61z2v2f25",
+										"execute-api",
+										"us-east-1",
+										"amazonaws",
+										"com"
+									],
+									"path": [
+										"dev",
+										"vehicle"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List Vehicles",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://k61z2v2f25.execute-api.us-east-1.amazonaws.com/dev/vehicle",
+									"protocol": "https",
+									"host": [
+										"k61z2v2f25",
+										"execute-api",
+										"us-east-1",
+										"amazonaws",
+										"com"
+									],
+									"path": [
+										"dev",
+										"vehicle"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Vehicle",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJraWQiOiJ4Z21BWExrYXRQY0t2MGRBMW5FWGFUTWtZVnFnNGRrOFJHcCtxVWxwZGswPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI0NDU4ODQ3OC02MGQxLTcwZGEtMmQ4Ny1hNjg3ODZlMTRmMWMiLCJjb2duaXRvOmdyb3VwcyI6WyJzZWxsZXIiXSwiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLnVzLWVhc3QtMS5hbWF6b25hd3MuY29tXC91cy1lYXN0LTFfRzVNOURpbTZiIiwiY2xpZW50X2lkIjoiNmdkNDZoNnZvMDRiYTNtY3NiaWM4b2xndHYiLCJvcmlnaW5fanRpIjoiMzNlOTM2NzctMTMwNy00MmY0LThlNzUtZTA5ZDA4ZDkzN2NmIiwiZXZlbnRfaWQiOiI3MGM2NWI3MC03ZDE0LTQ0YjEtOTM1Yy1lZjg0NzRmOWQ3MTEiLCJ0b2tlbl91c2UiOiJhY2Nlc3MiLCJzY29wZSI6ImF3cy5jb2duaXRvLnNpZ25pbi51c2VyLmFkbWluIiwiYXV0aF90aW1lIjoxNzM5NDkwNTIxLCJleHAiOjE3Mzk0OTQxMjEsImlhdCI6MTczOTQ5MDUyMSwianRpIjoiMmZkNWVmMTEtMzVhMC00ZmRhLTg5OGMtMmQ0YWM2NGIwOTgxIiwidXNlcm5hbWUiOiJ2ZW5kZWRvckBnbWFpbC5jb20ifQ.Cqqd8NyHlbwFi0vDQIUTJmTFaCfkamTh0HBP_VmTRB0GZhev460QFmr-O9HAytPHMPeXV2lCPREKDbpDPs4Rdf9FWcXbfCY0ZnPJ7ZrswJa-7mWVkBbEypNbd6LBcHTNdmNMZAqc52RLUClDZtqqV-W5dsHwXooOh9KDswrldE1fs69jdhQAHnRc8YFQHqM9nrs2GBa7ShkpoktYXWkaTYYClbgiNTppTStGnDHwXk7Ri9Ht4AE8fW0pgKik1fP-2LOp-ugrxuyM-mxcpCi2a0BBpa6fCPjcboHXIb_cNy1tJfPaoBHL03CmCZ_K5u1olA8j52FmPBJmr8Cl6CSQdQ",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": 7,\r\n    \"brand\": \"Fiat\",\r\n    \"model\": \"500\",\r\n    \"year\": 2020,\r\n    \"price\": 70000,\r\n    \"mileage\": 50000,\r\n    \"status\": \"AVAILABLE\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://k61z2v2f25.execute-api.us-east-1.amazonaws.com/dev/vehicle",
+									"protocol": "https",
+									"host": [
+										"k61z2v2f25",
+										"execute-api",
+										"us-east-1",
+										"amazonaws",
+										"com"
+									],
+									"path": [
+										"dev",
+										"vehicle"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Search for Vehicles",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://k61z2v2f25.execute-api.us-east-1.amazonaws.com/dev/vehicle?sort=price&sortOrder=DESC",
+									"protocol": "https",
+									"host": [
+										"k61z2v2f25",
+										"execute-api",
+										"us-east-1",
+										"amazonaws",
+										"com"
+									],
+									"path": [
+										"dev",
+										"vehicle"
+									],
+									"query": [
+										{
+											"key": "sort",
+											"value": "price"
+										},
+										{
+											"key": "sortOrder",
+											"value": "DESC"
+										},
+										{
+											"key": "search",
+											"value": "%7B%22field%22:%22brand%22,%22value%22:%22Honda%22%7D",
+											"disabled": true
+										},
+										{
+											"key": "search",
+											"value": "\"{\"field\":\"brand\",\"value\":\"Nissan\"}\"",
+											"disabled": true
+										},
+										{
+											"key": "search",
+											"value": "%7B%22field%22:%22status%22,%22value%22:%22RESERVED%22%7D",
+											"disabled": true
+										},
+										{
+											"key": "search",
+											"value": "%7B%22field%22:%22status%22,%22value%22:%22SOLD%22%7D",
+											"disabled": true
+										},
+										{
+											"key": "",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Vehicle By ID",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://k61z2v2f25.execute-api.us-east-1.amazonaws.com/dev/vehicle/2",
+									"protocol": "https",
+									"host": [
+										"k61z2v2f25",
+										"execute-api",
+										"us-east-1",
+										"amazonaws",
+										"com"
+									],
+									"path": [
+										"dev",
+										"vehicle",
+										"2"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "Register User",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"vendedor2@gmail.com\",\r\n  \"password\": \"Senha@123\",\r\n  \"name\": \"Fulano de Tal\",\r\n  \"phone\": \"+5511959688769\",\r\n  \"rg\": \"123456789\",\r\n  \"userType\": \"SELLER\",\r\n  \"cnh\": \"12345678900\",\r\n  \"address\": \"Rua Exemplo, 123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://jf18drfst4.execute-api.us-east-1.amazonaws.com/dev/registerUser",
+									"protocol": "https",
+									"host": [
+										"jf18drfst4",
+										"execute-api",
+										"us-east-1",
+										"amazonaws",
+										"com"
+									],
+									"path": [
+										"dev",
+										"registerUser"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "SignIn",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\":\"lucascandido@gmail.com\",\r\n    \"password\":\"Senha@123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://jf18drfst4.execute-api.us-east-1.amazonaws.com/dev/signin",
+									"protocol": "https",
+									"host": [
+										"jf18drfst4",
+										"execute-api",
+										"us-east-1",
+										"amazonaws",
+										"com"
+									],
+									"path": [
+										"dev",
+										"signin"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Verify Token",
+							"request": {
+								"auth": {
+									"type": "jwt",
+									"jwt": [
+										{
+											"key": "algorithm",
+											"value": "HS256",
+											"type": "string"
+										},
+										{
+											"key": "isSecretBase64Encoded",
+											"value": false,
+											"type": "boolean"
+										},
+										{
+											"key": "payload",
+											"value": "{}",
+											"type": "string"
+										},
+										{
+											"key": "addTokenTo",
+											"value": "header",
+											"type": "string"
+										},
+										{
+											"key": "headerPrefix",
+											"value": "Bearer",
+											"type": "string"
+										},
+										{
+											"key": "queryParamKey",
+											"value": "token",
+											"type": "string"
+										},
+										{
+											"key": "header",
+											"value": "{}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJraWQiOiJLK3M4YTFWeDhWSjdrVHhYaGVSemdIcEwydUZFTm9zWGZvMTNnN1g4UWcwPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJkNDQ4MDRkOC0wMGQxLTcwYmYtZWNmZS04NmI5MGYyY2EyODIiLCJjb2duaXRvOmdyb3VwcyI6WyJzZWxsZXIiXSwiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLnVzLWVhc3QtMS5hbWF6b25hd3MuY29tXC91cy1lYXN0LTFfaTZjbE9ZZXM3IiwiY2xpZW50X2lkIjoiNzRnaWlsZmc3MjV1Z2FxaHBrMzd0cHNlamgiLCJvcmlnaW5fanRpIjoiZGY2OGQxNWYtMGY2NS00YTkzLWJiZmMtNWU0ZWUyOTYzZThmIiwiZXZlbnRfaWQiOiI5YWY0NDdlMy04ZWY5LTQxOTgtODJjYy0zYjQyYWZkYjUyZDYiLCJ0b2tlbl91c2UiOiJhY2Nlc3MiLCJzY29wZSI6ImF3cy5jb2duaXRvLnNpZ25pbi51c2VyLmFkbWluIiwiYXV0aF90aW1lIjoxNzM5Mzk1NTM3LCJleHAiOjE3MzkzOTkxMzcsImlhdCI6MTczOTM5NTUzNywianRpIjoiODg4NTJhMWItMmUxYS00NWI1LWI4NGMtOTlmNzg3YTE5NTY4IiwidXNlcm5hbWUiOiJ2ZW5kZWRvckB0ZXN0ZS5jb20ifQ.ifEXhJnGGQDl0xiokNf8LsLsI72lRxLmFQXx4wE828vpqa3lDU9re0kmBvdli-MNivv05pk1xMil1JGfk3q1WkEO_xihLsrOuj-4FYPTFd5fHoz5IUgDxlWOKQZjhw1bg_KNb4oxggUeD1pAcP-7vwykFHjnIEmUmjPOWjbbVcfsDZDcFbjmn22B7gF6joA4un-5B1bkJftvSOZRpz3xmkIq-O-iTLC7Vjp9gETmDMPniWB_NJmCdLlOwGNpdzG_fWX7nqanu82ZbniepNYFEvwwK5WjJ6-lwgHvp3OS5-0w1_njR2N1Y2zzczx1VtTrUNbr8BQdFXfCiusKWu5CUw",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://jf18drfst4.execute-api.us-east-1.amazonaws.com/dev/verifyToken",
+									"protocol": "https",
+									"host": [
+										"jf18drfst4",
+										"execute-api",
+										"us-east-1",
+										"amazonaws",
+										"com"
+									],
+									"path": [
+										"dev",
+										"verifyToken"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Refresh Token",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"refreshToken\":\"eyJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBLU9BRVAifQ.0pdC3515vS-0v1IoJnD_nm7WDgN3BZwj0ZELWSy_7W-fSXw9qHcN2yEt9RHHqSoZ2w68dc1WMDnjGYyjS8ZQL2aKJS7NYZa5xSJVAdKsJd2rgB0Y3SAEChGjyNzq63t7RJRLaZ20ABtUphNdiHU0gmTgPXi5R1CrzM96cVO7MZ3mhB451Eze0JbK9cuC66kbJyqQQmBxmsT7Muy793y9NqLIpl7akbuysEd1sDH5_WsyS7IcxXYb-WsajmIeAuPsufpkhSDsFcWHioiYhDBQ3kVpIgvcy4OBxnK2oEVzrBhD9DhC7xZ4jhB2F6-GT5_QWtpegz0CY2vfaQeThkgB-w.7KQN31JFf4g7oa8F.AhDe49kC-JbmHj6Ez577-ZxwvB4_nM3-xlmsFDZW6gBL_YMLzXTJQHv4CpNgpEpuP-acvlAZkcTd4NNLy956CSHZ9DBdUZBWuuOpwR1YbPwZWix9uBTtxkpdRDn0PDba9eWCYMikgEDw5tFEt_pehh3gi7NhXYK19JSIrguvP_32DfIxGD-6Q6mg5zVAwcH5oUynJrzU833SPZKCeGA0QSxHGJ66BFUKulGZ-ZUD8nJS_I9Lez48iIHr5qZw5WLbIDzEe4QAB4LWRR7WpI9coVdSo_V8mbzx9Ncab3zDQNhdVh9KSJEbNZHnv9nrdTllNFvOBDV-xRXMOlzHnatfNWKADnKw9crz_TDL4AS5dh-9UNhPCn0ip84UbJtxwJ8MXSsQpncs4HBjJ9YkSYb6btrk1HLF-ZKaTMdw_qHM0XEn74tTq-0-wEqQv5zMcw58-MMJwrdadaZlnoLv37CRTbaemes49IPpKkpsvNQAPxJbLSmjcDqy7gLjWA_4tsHC6-lbLLeP2UYH861myO0abE30csK3s3JqE_Rnz9lqhD7iUA8DbiMQdQMBDHDgD04qZX2XYUVprPAUlkIYAdiHuU_NsthThWxcC6nsVGPCHBzTeyUmJX7ZsRbrpPttkDb0l8NIzRrnUHN7sS_UeeF1IC9wRTVvofuwRsZ4ni9yq2mo616ZcFWdlpWXdnQqnCUPRa1C2pGgNlY4rwAQyIhDJduYjBrkUmnekHS2o9C6FNgfFxO8tnrHwVLiJ7wvewhhi6SpVCYZcowYp-DnpWDrX1SPzwFhshdMInIYvnvgzLiX-LJVdug-lcyX6KxSy8aJoeVjz_5S5sr8-xy5N3O8R8NxCAcOM52_lr9rl-S8Fj09V4tTB0-USwyYkB-ZOv0SbKKdPNp1v7nym99i48SXtKhQMopaxeA38-RD3VrPt8fn1EpTwuW9x568-lkcEDkYtmKmmehN_DZX0elVsJKAGKhdisg06my2ppCsyRJVZpIaAKDyr4ipeeAKIyfrzSfymOypJsNWStP6JNKwxUc-CPBikvP0kV5iIJDlze03-ZOKwKSXcD-aFfMW_F3u6nzZQ8MC25ccs5VSa9kMFtl3lPr0QnCLwW5JVPofuJofovOV22Uk-7HbLBS5l8a4BpPQMYmRVZB-s7ivdLIn8r1_E9nSMIx1TAtHHL_DPjgO-XSGR8HOX1rnMY601yaAV_vZyrXYUWl6iHCQDbMBzyuExPGBGYeFhd9EWLyoE4pJHtqjWbiuIwkz1cLLvyBz7oN29TEJxDjcpBacfsl7paK4byBD6weoKw.uCa2sVSxeSXIG4WD4Lg1oA\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://jf18drfst4.execute-api.us-east-1.amazonaws.com/dev/refreshToken",
+									"protocol": "https",
+									"host": [
+										"jf18drfst4",
+										"execute-api",
+										"us-east-1",
+										"amazonaws",
+										"com"
+									],
+									"path": [
+										"dev",
+										"refreshToken"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "SalesAndReserve",
+					"item": [
+						{
+							"name": "Reserve Vehicle",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJraWQiOiJLK3M4YTFWeDhWSjdrVHhYaGVSemdIcEwydUZFTm9zWGZvMTNnN1g4UWcwPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJiNDQ4YTRhOC0wMDMxLTcwMTMtYzNhNC0zMmFlMDM2OWRiMWIiLCJjb2duaXRvOmdyb3VwcyI6WyJidXllciJdLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0xLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMV9pNmNsT1llczciLCJjbGllbnRfaWQiOiI3NGdpaWxmZzcyNXVnYXFocGszN3Rwc2VqaCIsIm9yaWdpbl9qdGkiOiI0N2NkMTc0Yi1hZWQ4LTQ3MjktODcxNC02YjdmNGFiZDM2MWIiLCJldmVudF9pZCI6ImE5NzMwZjJmLTk4YTUtNGEzNi1iZDkwLWFlNTZhNWQxMGVkZiIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4iLCJhdXRoX3RpbWUiOjE3MzkzOTcwMDQsImV4cCI6MTczOTQwMDYwNCwiaWF0IjoxNzM5Mzk3MDA0LCJqdGkiOiJjYmYxNWE0YS00Mjc3LTQzZjYtODEyMi1iNGQzYTA4YTRmZDAiLCJ1c2VybmFtZSI6Imx1Y2FzY2FuZGlkb0BnbWFpbC5jb20ifQ.mfSmqpeORGyhMTcAhvXnHxumrTSt9ziUKcAItrSm7kDvGLYrtFUbtO86ZyeZWtBrDIldtCi6JwaRN5F167hoy0Sgk68isczD_YBUgipQTuzGAId3ltANDsWMN85gFEmOqyXlp-RKDRzvpXfe6aCmkCDMQdEt1c_SdafQnyZ0YzXQJ9jf1o2aH31cYLtOvtoc7aFHUoRc3TmyTtW7NAJMoalzHV8EwUJvZ6dJKoWhGq3u8rOCr5IBUNguNskCuDmvFL3cCCu1AVjAG95FjtkiMMUWepoGIlKy9cGGteMrYcAsq6v9UHRPhFLNAu_jNiYPCqaph7y3AP0hixTiIQKI-g",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"vehicleId\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://v6kiexbtxb.execute-api.us-east-1.amazonaws.com/dev/reservation",
+									"protocol": "https",
+									"host": [
+										"v6kiexbtxb",
+										"execute-api",
+										"us-east-1",
+										"amazonaws",
+										"com"
+									],
+									"path": [
+										"dev",
+										"reservation"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Sale Vehicle",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJraWQiOiJLK3M4YTFWeDhWSjdrVHhYaGVSemdIcEwydUZFTm9zWGZvMTNnN1g4UWcwPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJiNDQ4YTRhOC0wMDMxLTcwMTMtYzNhNC0zMmFlMDM2OWRiMWIiLCJjb2duaXRvOmdyb3VwcyI6WyJidXllciJdLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0xLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMV9pNmNsT1llczciLCJjbGllbnRfaWQiOiI3NGdpaWxmZzcyNXVnYXFocGszN3Rwc2VqaCIsIm9yaWdpbl9qdGkiOiI0N2NkMTc0Yi1hZWQ4LTQ3MjktODcxNC02YjdmNGFiZDM2MWIiLCJldmVudF9pZCI6ImE5NzMwZjJmLTk4YTUtNGEzNi1iZDkwLWFlNTZhNWQxMGVkZiIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4iLCJhdXRoX3RpbWUiOjE3MzkzOTcwMDQsImV4cCI6MTczOTQwMDYwNCwiaWF0IjoxNzM5Mzk3MDA0LCJqdGkiOiJjYmYxNWE0YS00Mjc3LTQzZjYtODEyMi1iNGQzYTA4YTRmZDAiLCJ1c2VybmFtZSI6Imx1Y2FzY2FuZGlkb0BnbWFpbC5jb20ifQ.mfSmqpeORGyhMTcAhvXnHxumrTSt9ziUKcAItrSm7kDvGLYrtFUbtO86ZyeZWtBrDIldtCi6JwaRN5F167hoy0Sgk68isczD_YBUgipQTuzGAId3ltANDsWMN85gFEmOqyXlp-RKDRzvpXfe6aCmkCDMQdEt1c_SdafQnyZ0YzXQJ9jf1o2aH31cYLtOvtoc7aFHUoRc3TmyTtW7NAJMoalzHV8EwUJvZ6dJKoWhGq3u8rOCr5IBUNguNskCuDmvFL3cCCu1AVjAG95FjtkiMMUWepoGIlKy9cGGteMrYcAsq6v9UHRPhFLNAu_jNiYPCqaph7y3AP0hixTiIQKI-g",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"reservationId\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://v6kiexbtxb.execute-api.us-east-1.amazonaws.com/dev/sale",
+									"protocol": "https",
+									"host": [
+										"v6kiexbtxb",
+										"execute-api",
+										"us-east-1",
+										"amazonaws",
+										"com"
+									],
+									"path": [
+										"dev",
+										"sale"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Payment",
+					"item": [
+						{
+							"name": "Mock Confirm Payment",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "\"{\\\"paymentId\\\":\\\"mock_kw42w5nlq\\\",\\\"saleId\\\": 1,\\\"action\\\":\\\"confirm\\\"}\"",
+									"options": {
+										"raw": {
+											"language": "text"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://q6jvmnkes0.execute-api.us-east-1.amazonaws.com/dev/payments/confirm",
+									"protocol": "https",
+									"host": [
+										"q6jvmnkes0",
+										"execute-api",
+										"us-east-1",
+										"amazonaws",
+										"com"
+									],
+									"path": [
+										"dev",
+										"payments",
+										"confirm"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
