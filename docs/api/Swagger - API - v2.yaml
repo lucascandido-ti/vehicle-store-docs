@@ -1,0 +1,343 @@
+openapi: 3.0.0
+info:
+  title: Vehicle Resale API
+  description: API for managing vehicle resale operations, including vehicle listings, sales, reservations, and client management.
+  version: 1.0.0
+servers:
+  - url: https://api.vehicleresale.com/v1
+    description: Dev server
+
+paths:
+  /vehicles:
+    get:
+      summary: List vehicles for sale
+      description: Retrieve a list of vehicles available for sale, ordered by price from lowest to highest.
+      parameters:
+        - in: query
+          name: skip
+          schema:
+            type: number
+        - in: query
+          name: take
+          schema:
+            type: number
+        - in: query
+          name: sort
+          schema:
+            type: string
+        - in: query
+          name: sortOrder
+          schema:
+            type: string
+            enum: [DESC, ASC]
+        - in: query
+          name: search
+          schema:
+            type: string
+            example: '{"field":"brand","value":"Nissan"}'
+
+      responses:
+        "200":
+          description: A list of vehicles.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Vehicle"
+    post:
+      summary: Register a vehicle for sale
+      description: Add a vehicle to the inventory for resale.
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/VehicleInput"
+      responses:
+        "201":
+          description: Vehicle registered successfully.
+
+    put:
+      summary: Update vehicle details
+      description: Modify the details of an existing vehicle.
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/VehicleInput"
+      responses:
+        "200":
+          description: Vehicle updated successfully.
+  /vehicles/{id}:
+    get:
+      summary: Get vehicle details
+      description: Retrieve details of a specific vehicle by ID.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Vehicle details.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Vehicle"
+
+  /reservations:
+    post:
+      summary: Reserve a vehicle
+      description: Reserve a vehicle for a client.
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ReservationInput"
+      responses:
+        "201":
+          description: Vehicle reserved successfully.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Reservation"
+
+  /reservations/{id}/cancel:
+    put:
+      summary: Cancel a reservation
+      description: Cancel an existing vehicle reservation.
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Reservation canceled successfully.
+  /sale:
+    post:
+      summary: Reserve a vehicle
+      description: Reserve a vehicle for a client.
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SaleInput"
+      responses:
+        "201":
+          description: Vehicle reserved successfully.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Sale"
+
+  /sales/{id}/cancel:
+    put:
+      summary: Cancel a reservation
+      description: Cancel an existing vehicle reservation.
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Reservation canceled successfully.
+
+  /registerUser:
+    post:
+      summary: Register a new client
+      description: Add a new client to the system.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ClientInput"
+      responses:
+        "201":
+          description: Client registered successfully.
+
+  /singIn:
+    post:
+      summary: Authenticate user with email and password
+      description: Authenticate user with email and password
+      responses:
+        "200":
+          description: Client details.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SingInInput"
+
+components:
+  securitySchemes:
+    bearerAuth: # arbitrary name for the security scheme
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    Vehicle:
+      type: object
+      properties:
+        id:
+          type: string
+        brand:
+          type: string
+        model:
+          type: string
+        year:
+          type: integer
+        price:
+          type: number
+          format: float
+        mileage:
+          type: number
+        status:
+          type: string
+          enum: [AVAILABLE, RESERVED, SOLD]
+    VehicleInput:
+      type: object
+      required:
+        - brand
+        - model
+        - year
+        - price
+        - mileage
+      properties:
+        brand:
+          type: string
+        model:
+          type: string
+        year:
+          type: integer
+        price:
+          type: number
+          format: float
+        mileage:
+          type: number
+    Client:
+      type: object
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+        name:
+          type: string
+        phone:
+          type: string
+        rg:
+          type: string
+        userType:
+          type: string
+          enum: [BUYER, SELLER]
+        cnh:
+          type: string
+        address:
+          type: string
+
+    ClientInput:
+      type: object
+      required:
+        - email
+        - password
+        - name
+        - phone
+        - rg
+        - userType
+        - cnh
+        - address
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+        name:
+          type: string
+        phone:
+          type: string
+        rg:
+          type: string
+        userType:
+          type: string
+          enum: [BUYER, SELLER]
+        cnh:
+          type: string
+        address:
+          type: string
+
+    SingInInput:
+      type: object
+      required:
+        - username
+        - password
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+
+    Reservation:
+      type: object
+      properties:
+        id:
+          type: number
+        user_id:
+          type: string
+        vehicle_id:
+          type: number
+        status:
+          type: string
+          enum: [RESERVED, CANCELLED, CONCLUDED]
+
+    ReservationInput:
+      type: object
+      required:
+        - vehicleId
+      properties:
+        vehicleId:
+          type: number
+
+    Sale:
+      type: object
+      properties:
+        id:
+          type: number
+        reservation_id:
+          type: number
+        payment_id:
+          type: number
+        price:
+          type: number
+          format: float
+        status:
+          type: string
+          enum: [PENDING, CANCELLED, CONCLUDED]
+
+    SaleInput:
+      type: object
+      required:
+        - vehicleId
+      properties:
+        reservationId:
+          type: number
